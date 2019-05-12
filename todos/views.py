@@ -4,19 +4,6 @@ from .models import Todo
 
 # Create your views here.
 
-todos = [
-    {  
-        "name":"Make a todo list",
-        "deadline":"26 May 2019", 
-        "progress":"40%"
-    },
-    {
-        "name":"50 Cent",
-        "deadline":"27 May 2019", 
-        "progress":"70%"
-    }
-]
-
 def home(request):
     context = {
         "todos": Todo.objects.all()
