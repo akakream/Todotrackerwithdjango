@@ -1,20 +1,31 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Todo
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
-# Create your views here.
+# Create your views here.      
 
-def home(request):
-    context = {
-        "todos": Todo.objects.all()
-    }
-    return render(request, "todos/index.html", context)
+class TodoList(ListView):
+    model = Todo
 
-def addtodo(request):
-    return render(request, "todos/addtodo.html")
+class TodoView(DetailView):
+    model = Todo
 
-def deletetodo(request):
-    return HttpResponse("<h1>This is the deletetodo page</h1>")    
+class TodoCreate(CreateView):
+    model = Todo
+    fields = ['name', 'deadline', 'progress']
+    success_url = reverse_lazy('todo_list')
 
-def edittodo(request):
-    return render(request, "todos/edit.html")        
+class TodoUpdate(UpdateView):
+    model = Todo
+    fields = ['name', 'deadline', 'progress']
+    success_url = reverse_lazy('todo_list')
+
+class TodoDelete(DeleteView):
+    model = Todo
+    success_url = reverse_lazy('todo_list')
+
+def contact(request):
+    return render(request, 'todos/contact.html')        

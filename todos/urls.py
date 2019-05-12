@@ -3,8 +3,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='todos-home'),
-    path('addtodo/', views.addtodo, name='todos-addtodo'),
-    path('deletetodo/', views.deletetodo, name='todos-deletetodo'),
-    path('edittodo/', views.edittodo, name='todos-edittodo'),
+    path('', views.TodoList.as_view(), name='todo_list'),
+    path('view/<int:pk>', views.TodoView.as_view(), name='todo_view'),
+    path('new/', views.TodoCreate.as_view(), name='todo_new'),
+    path('view/<int:pk>', views.TodoView.as_view(), name='todo_view'),
+    path('edit/<int:pk>', views.TodoUpdate.as_view(), name='todo_edit'),
+    path('delete/<int:pk>', views.TodoDelete.as_view(), name='todo_delete'),
+    path('contact', views.contact, name='todo_contact')
 ]

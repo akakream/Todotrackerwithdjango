@@ -6,27 +6,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   <link rel="stylesheet" href="css/app.min.css">
 
-  <title>Contact | TODO-Tracker</title>
+  <title>Add TODO | TODO-Tracker</title>
 
   <link rel="shortcut icon" type="image/png" href="assets/favicon/c25c73007352a435b010073727badfd1.ico/favicon.ico">
 </head>
 
-<body class="contact">
+<body class="add">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url "todo_list" %}">TODO-Tracker</a>
+    <a class="navbar-brand" href="index.html">TODO-Tracker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{% url "todo_list" %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "todo_new" %}">Add TODO</a>
+          <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="{% url "todo_contact" %}">Contact <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="addtodo.html">Add TODO <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,15 +48,41 @@
   </nav>
 
   <div class="container container--title mt-5 mb-5">
-    <h1 class="page-title">Contact</h1>
+    <h1 class="page-title">Add TODO</h1>
   </div>
 
   <div class="container">
-    <hr>
-    <a href="https://github.com/akakream" target="_blank" rel="noopener noreferrer">Ahmet Kerem Aksoy</a>
-    <hr>
-    <a href="https://github.com/just-h" target="_blank" rel="noopener noreferrer">Justin Lennart Hauser</a>
-    <hr>
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="form form--add">
+          <div class="input-group input-group-sm mb-3 form__name">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" for="inputGroupTODO">TODO</span>
+              </div>
+              <textarea class="form-control" aria-label="TODO" aria-describedby="inputGroupTODO"></textarea>
+            </div>
+          </div>
+          <div class="input-group input-group-sm mb-3 form__deadline">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupDeadline">Deadline</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Deadline" aria-describedby="inputGroupDeadline">
+            </div>
+          </div>
+          <div class="input-group input-group-sm mb-3 form__progress">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupProgress">Progress</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Progress" aria-describedby="inputGroupProgress">
+            </div>
+          </div>
+          <button type="button" class="btn btn-dark">Save</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="container-fluid footer">

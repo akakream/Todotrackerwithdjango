@@ -13,20 +13,20 @@
 
 <body class="home">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.html">TODO-Tracker</a>
+    <a class="navbar-brand" href="{% url "todo_list" %}">TODO-Tracker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url "todo_list" %}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="addtodo.html">Add TODO</a>
+          <a class="nav-link" href="{% url "todo_new" %}">Add TODO</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="{% url "todo_contact" %}">Contact</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,32 +51,10 @@
     <h1 class="page-title">TODO-Tracker <span class="page-title__sub">Never forget what to do!</span></h1>
   </div>
 
-  <div class="container container--todo">
-    <table class="table table--todo">
-      <thead class="thead-dark">
-        <tr>
-          <th class="todo__number" scope="col">#</th>
-          <th class="todo__name" scope="col">TODO</th>
-          <th class="todo__due-date" scope="col">Deadline</th>
-          <th class="todo__progress" scope="col">Progress</th>
-          <th class="todo__edit" scope="col"></th>
-          <th class="todo__delete" scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for todo in todos %}
-        <tr class="todo">
-          <th class="todo__number" scope="row">1</th>
-          <td class="todo__name">{{ todo.name }}</td>
-          <td class="todo__due-date">{{ todo.deadline }}</td>
-          <td class="todo__progress">{{ todo.progress }}</td>
-          <td class="todo__edit"><button type="button" class="btn btn-dark">Edit</button></td>
-          <td class="todo__delete"><button type="button" class="btn btn-dark">Delete</button></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+  <h1>Todo Details</h1>
+  <h2>Name: {{object.name}}</h2>
+  Deadline: {{ object.deadline }}
+  Progress: {{ object.progress }}
 
   <div class="container-fluid footer">
     <p>Copyright © 2019 Ahmet Kerem Aksoy & Justin Hauser All rights reserved.</p>
