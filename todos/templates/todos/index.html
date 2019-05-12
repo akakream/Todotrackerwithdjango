@@ -21,9 +21,9 @@
           <td class="todo__name">{{ todo.name }}</td>
           <td class="todo__due-date">{{ todo.deadline }}</td>
           <td class="todo__progress">{{ todo.progress }}</td>
-          <td class="todo__view"><button type="button" class="btn btn-dark"></button></td>
-          <td class="todo__edit"><button type="button" class="btn btn-dark">Edit</button></td>
-          <td class="todo__delete"><button type="button" class="btn btn-dark">Delete</button></td>
+          <td class="todo__view"><a type="button" class="btn btn-dark" href="{% url 'todos-viewtodo' todo.id %}">View</a></td>
+          <td class="todo__edit"><a type="button" class="btn btn-dark" href="{% url 'todos-edittodo' todo.id %}">Edit</a></td>
+          <td class="todo__delete"><a type="button" class="btn btn-dark" href="{% url 'todos-deletetodo' todo.id %}">Delete</a></td>
         </tr>
         {% endfor %}
       </tbody>

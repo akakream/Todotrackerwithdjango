@@ -2,6 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Todo
 from django.forms import ModelForm
+from django.views.generic import (
+    ListView, 
+    DetailView, 
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 
 # Create your views here
 
@@ -16,31 +23,27 @@ def home(request):
     }
     return render(request, "todos/index.html", context)
 
-def viewtodo(request, pk):
-    todo = get_object_or_404(Todo, pk=pk)    
-    return render(request, "todos/view.html", {'object':todo})    
+class TodoListView(ListView):
+    model = Todo
+    template_name = 'todos/index.html'
+    context_object_name = 'todos'
+    ordering = ['id']
 
-def addtodo(request):
-    form = TodoForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    return render(request, "todos/addtodo.html", {'title': 'Add TODO | TODO-Tracker'}, {'form':form})
+class TodoDetailView(DetailView):
+    model = Todo
+    template_name = 'todos/view.html'
 
-def deletetodo(request, pk):
-    todo = get_object_or_404(Todo, pk=pk)    
-    if request.method=='POST':
-        todo.delete()
-    context = {
-        "todos": Todo.objects.all()
-    }     
-    return render(request, "todos/index.html", context)   
+class TodoCreateView(CreateView):
+    model = Todo
+    fields = ['name', 'deadline', 'progress']
 
-def edittodo(request, pk):
-    todo= get_object_or_404(Todo, pk=pk)
-    form = TodoForm(request.POST or None, instance=todo)
-    if form.is_valid():
-        form.save()
-    return render(request, "todos/edit.html", {'title': 'Edit TODO | TODO-Tracker'}, {'form':form})
+class TodoUpdateView(UpdateView):
+    model = Todo
+    fields = ['name', 'deadline', 'progress']
+
+class TodoDeleteView(DeleteView):
+    model = Todo
+    success_url = '/todos'
 
 def contact(request):
     return render(request, "todos/contact.html", {'title': 'Contact | TODO-Tracker'})    

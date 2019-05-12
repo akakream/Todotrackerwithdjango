@@ -13,5 +13,5 @@ class Todo(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('todos-edittodo', kwargs={'pk': self.pk})    
+        return reverse('todos-viewtodo', kwargs={'pk': self.pk})    
 

@@ -9,7 +9,6 @@
           <th class="todo__name" scope="col">TODO</th>
           <th class="todo__due-date" scope="col">Deadline</th>
           <th class="todo__progress" scope="col">Progress</th>
-          <th class="todo__view" scope="col"></th>
           <th class="todo__edit" scope="col"></th>
           <th class="todo__delete" scope="col"></th>
         </tr>
@@ -20,9 +19,8 @@
           <td class="todo__name">{{ todo.name }}</td>
           <td class="todo__due-date">{{ todo.deadline }}</td>
           <td class="todo__progress">{{ todo.progress }}</td>
-          <td class="todo__view"><button type="button" class="btn btn-dark"></button></td>
-          <td class="todo__edit"><button type="button" class="btn btn-dark">Edit</button></td>
-          <td class="todo__delete"><button type="button" class="btn btn-dark">Delete</button></td>
+          <td class="todo__edit"><a type="button" class="btn btn-dark" href="{% url 'todos-edittodo' todo.id %}">Edit</a></td>
+          <td class="todo__delete"><a type="button" class="btn btn-dark" href="{% url 'todos-deletetodo' todo.id %}">Delete</a></td>
         </tr>
       </tbody>
     </table>
