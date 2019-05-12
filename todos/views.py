@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Todo
-from django.forms import ModelForm
 from django.views.generic import (
     ListView, 
     DetailView, 
@@ -11,11 +10,6 @@ from django.views.generic import (
 )
 
 # Create your views here
-
-class TodoForm(ModelForm):
-    class Meta:
-        model = Todo
-        fields = ['name', 'deadline', 'progress']
 
 def home(request):
     context = {
