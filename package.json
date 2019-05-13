@@ -1,0 +1,30 @@
+{
+  "name": "bs4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ahmet Kerem Aksoy & Justin Hauser",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "merge2": "^1.2.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "express": "^4.16.4",
+    "jquery": "^3.4.0",
+    "mongodb": "^3.2.4",
+    "popper.js": "^1.15.0"
+  }
+}
