@@ -4,8 +4,8 @@ from django.urls import reverse
 # Create your models here.
 
 class Todo(models.Model):
-    name = models.TextField()
-    deadline = models.TextField()
+    name = models.TextField(max_length=160)
+    deadline = models.TextField(max_length=160)
     progress = models.CharField(max_length=4)
     objects = models.Manager()
 
