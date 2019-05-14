@@ -4,24 +4,41 @@
 
 A website that allows you to keep track of your TODOs.
 
-### "Build" process for production
+### Build process
 
-
-
-### Build process for development
-
-Install django if you haven't done so already:
+Install Django if you haven't done so already:
 
 ```
 $ pip install django
 ```
 
+Start your local server with:
+
+```
+$ python manage.py runserver
+```
+
 Your working dev copy will now be accessible under [http://localhost:8000/](http://localhost:8000/) and automatically update as you change local files.
+
+**For SCSS and JS hot-reloading:**
+
+```
+$ npm install gulp-cli -g
+$ npm install
+```
+
+And start the live compiling of your JS and SCSS with:
+
+```
+$ gulp
+```
 
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - front-end component library
 * [Django](https://www.djangoproject.com/) - a Python-based free and open-source web framework
+* [npm](https://www.npmjs.com/) - JavaScript development tools
+* [gulp](https://gulpjs.com/) - toolkit for automating tasks in the development workflow
 
 ## Versioning
 
