@@ -21,7 +21,7 @@ function css() {
       cascade: false
     }))                                     // prefix file       
     .pipe(minifyCSS())                      // minify css
-    .pipe(dest('todos/static/todos'))       // put file into to todos/static/todos
+    .pipe(dest('todos/static/todos/css'))   // put file into to todos/static/todos/css
 }
 
 
@@ -37,7 +37,7 @@ function js() {
   
   return merge(jquery, popper, bootstrap, app)
     .pipe(concat('app.min.js'))             // concat all js files
-    .pipe(dest('todos/static/todos'))       // put files into todos/static/todos
+    .pipe(dest('todos/static/todos/js'))    // put files into todos/static/todos/js
 }
 
 // static server and watching for filechanges
