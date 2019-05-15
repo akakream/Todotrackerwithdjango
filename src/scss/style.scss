@@ -1,0 +1,149 @@
+@import '_master';
+
+// import required bootstrap
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// layout
+body {
+  padding-bottom: 2rem; // accomodate for copyright notice
+  @media screen and (max-width: 423px) {
+    padding-bottom: 3.2rem;
+  }
+}
+@media (max-width: 299px) {
+  html {
+    font-size: 5vw;
+  }
+}
+
+// header
+.page-title {
+  width: 100%;
+  > .page-title__sub {
+    display: inline-block;
+    font-size: .5em;
+    opacity: 0.6;
+    color: $dark;
+  }
+  @include media-breakpoint-down(xs) {
+    text-align: center;
+  }
+}
+// footer
+.footer {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+
+  p {
+    opacity: .5;
+    margin-bottom: 0;
+    padding: .5rem 0;
+    font-size: 0.75rem;
+  }
+}
+
+// todo elements
+.table {
+  .todo__name {
+    max-width: 12rem;
+  }
+  .todo__number {
+    width: 3rem;
+    text-align: center;
+  }
+} 
+@include media-breakpoint-up(lg) {
+  .todo__edit,
+  .todo__delete {
+    max-width: 3rem;
+    text-align: right;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .table--todo {
+    display: block;
+    thead {
+      display: none;
+    }
+    tbody {
+      display: block;
+    }
+  }
+
+  .table .todo {
+    display: block;
+    margin-bottom: 1rem;
+    position: relative;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+    border-radius: .25rem;
+    > * {
+      display: inline-block;
+      border-top: 0;
+      padding-left: 4rem;
+      padding-right: 1rem;
+      width: 100%;
+    }
+    > .todo__due-date:before {
+      content: 'Due by: ';
+      display: inline;
+    }
+    > .todo__progress:before {
+      content: 'Progress: ';
+      display: inline;
+    }
+    .todo__number,
+    .todo__name {
+      font-size: 1.2rem
+    }
+    @at-root #{&}__number {
+      position: absolute;
+      width: 3rem;
+      height: 100%;
+      padding-left: 1rem;
+      background: $dark;
+      color: #fff;
+      text-align: center;
+      border-top-left-radius: .25rem;
+      border-bottom-left-radius: .25rem;
+    }
+    @at-root #{&}__name{
+      position: relative;
+      font-weight: bold;
+      width: 100%;
+      padding-left: 4rem;
+      max-width: 100%;
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 3rem;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: rgba(0,0,0,.1);
+      }
+    }
+
+    .todo__edit,
+    .todo__delete {
+      display: table-cell;
+      width: auto;
+    }
+    .todo__delete {
+      padding-left: 1rem;
+    }
+  }
+}
+
+// Form
+.form {
+  .input-group-prepend .input-group-text {
+    min-width: 5.5rem;
+  }
+  @at-root #{&}__name textarea  {
+    min-height: 5.5rem;
+  }
+}

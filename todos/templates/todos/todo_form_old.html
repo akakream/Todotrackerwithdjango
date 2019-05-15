@@ -1,16 +1,15 @@
-{% extends "todos/base.html" %}
 
 {% block content %}
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <form class="form form--edit">
+        <form class="form form--add">
           <div class="input-group input-group-sm mb-3 form__name">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" for="inputGroupTODO">TODO</span>
               </div>
-              <textarea class="form-control" aria-label="TODO" aria-describedby="inputGroupTODO" id="name" maxlength="160"></textarea>
+              <textarea class="form-control" aria-label="TODO" aria-describedby="inputGroupTODO"></textarea>
             </div>
           </div>
           <div class="input-group input-group-sm mb-3 form__deadline">
@@ -18,7 +17,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupDeadline">Deadline</span>
               </div>
-              <input type="text" class="form-control" aria-label="Deadline" aria-describedby="inputGroupDeadline" id="date">
+              <input type="text" class="form-control" aria-label="Deadline" aria-describedby="inputGroupDeadline">
             </div>
           </div>
           <div class="input-group input-group-sm mb-3 form__progress">
@@ -26,7 +25,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupProgress">Progress</span>
               </div>
-              <input type="text" class="form-control" aria-label="Progress" aria-describedby="inputGroupProgress" id="progress">
+              <input type="text" class="form-control" aria-label="Progress" aria-describedby="inputGroupProgress">
             </div>
           </div>
           <button type="button" class="btn btn-dark">Save</button>
@@ -34,4 +33,4 @@
       </div>
     </div>
   </div>
-{% endblock content %}  
+  {% endblock content %}  

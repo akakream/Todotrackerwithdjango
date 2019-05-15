@@ -4,37 +4,39 @@
 
 A website that allows you to keep track of your TODOs.
 
-Also includes a live-server dev environment for prototyping and rapid development with some of the standard practices (minification etc.). 
-Check out the gulpfile.js for more details.
+### Build process
 
-### "Build" process for production
+Install Django if you haven't done so already:
 
-Open build/index.html
+```
+$ pip install django
+```
 
-### Build process for development
+Start your local server with:
 
-Install gulp with npm/yarn if you haven't done so already:
+```
+$ python manage.py runserver
+```
+
+Your working dev copy will now be accessible under [http://localhost:8000/](http://localhost:8000/) and automatically update as you change local files.
+
+**For SCSS and JS hot-reloading:**
 
 ```
 $ npm install gulp-cli -g
-```
-
-Install development modules:
-
-```
 $ npm install
 ```
 
-Start development site with:
+And start the live compiling of your JS and SCSS with:
 
 ```
 $ gulp
 ```
-Your working dev copy will now be accessible under [http://localhost:3000/](http://localhost:3000/) and automatically update as you change local files.
 
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - front-end component library
+* [Django](https://www.djangoproject.com/) - a Python-based free and open-source web framework
 * [npm](https://www.npmjs.com/) - JavaScript development tools
 * [gulp](https://gulpjs.com/) - toolkit for automating tasks in the development workflow
 

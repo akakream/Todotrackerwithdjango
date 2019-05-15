@@ -1,0 +1,78 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static 'todos/css/app.min.css' %}">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% if title %}
+    <title>{{ title }}</title>
+  {% else %}
+    <title>TODO-Tracker</title>
+  {% endif %}
+
+  <link rel="shortcut icon" type="image/png" href="{% static 'todos/assets/favicon/c25c73007352a435b010073727badfd1.ico/favicon.ico' %}">
+</head>
+
+<body class="home">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'todos-home' %}">TODO-Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'todos-home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'todos-addtodo' %}">Add TODO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'todos-contact' %}">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container container--title mt-5 mb-5">
+    {% if title %}  
+        <h1 class="page-title">{{ title }}</h1>
+    {% else %}
+        <h1 class="page-title">TODO-Tracker | <span class="page-title__sub">Never forget what to do!</span></h1>
+    {% endif %}
+  </div>
+
+  {% block content %}{% endblock %}
+
+  <div class="container-fluid footer">
+    <p>Copyright © 2019 Ahmet Kerem Aksoy & Justin Hauser All rights reserved.</p>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <script src="{% static 'todos/js/app.min.js' %}"></script>
+</body>
+
+</html>

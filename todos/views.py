@@ -1,21 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Todo
+from django.views.generic import (
+    ListView, 
+    DetailView, 
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 
-# Create your views here.
-
-todos = [
-    {  
-        "name":"Make a todo list",
-        "deadline":"26 May 2019", 
-        "progress":"40%"
-    },
-    {
-        "name":"50 Cent",
-        "deadline":"27 May 2019", 
-        "progress":"70%"
-    }
-]
+# Create your views here
 
 def home(request):
     context = {
@@ -23,11 +17,27 @@ def home(request):
     }
     return render(request, "todos/index.html", context)
 
-def addtodo(request):
-    return render(request, "todos/addtodo.html")
+class TodoListView(ListView):
+    model = Todo
+    template_name = 'todos/index.html'
+    context_object_name = 'todos'
+    ordering = ['id']
 
-def deletetodo(request):
-    return HttpResponse("<h1>This is the deletetodo page</h1>")    
+class TodoDetailView(DetailView):
+    model = Todo
+    template_name = 'todos/view.html'
 
-def edittodo(request):
-    return render(request, "todos/edit.html")        
+class TodoCreateView(CreateView):
+    model = Todo
+    fields = ['name', 'deadline', 'progress']
+
+class TodoUpdateView(UpdateView):
+    model = Todo
+    fields = ['name', 'deadline', 'progress']
+
+class TodoDeleteView(DeleteView):
+    model = Todo
+    success_url = '/todos'
+
+def contact(request):
+    return render(request, "todos/contact.html", {'title': 'Contact | TODO-Tracker'})    
